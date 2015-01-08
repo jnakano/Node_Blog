@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simple Blog </title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="app.js"></script> 
+</head>
+<body ng-app="simpleBlog" ng-cloak ng-controller="MainCtrl">
+
+<div> 
+{{test}}
+
+{{sample}}
+</div>
+<form>
+	<h3>Add a post</h3>
+	<input type="text" placeholder="title"/>
+	<div> <br></div> 
+	<textarea placeholder="post"></textarea>
+	<br> 
+	<button type="submit"> Post </button>
+</form>
+
+</body>
+</html>

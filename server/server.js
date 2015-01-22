@@ -7,6 +7,8 @@ var server = require('http').createServer(app);
 var config = require('./config/environment');
 var mongoose = require('mongoose');
 
+require('./config/express')(app);
+
 
 server.listen(config.port,config.ip, function(){
 	console.log("Express listening on %d, in %s mode'", config.port, app.get('env'));
@@ -18,3 +20,5 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 
 
 require('./route')(app);
+
+if(config.seedDB) { require('./config/seed'); }

@@ -16,6 +16,8 @@ var config = {
 }
 
 
+// Export the config object based on the NODE_ENV
+// ==============================================
 module.exports = _.merge(
   config,
   require('./' + process.env.NODE_ENV + '.js') || {}

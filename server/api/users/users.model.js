@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 
-var schema = mongoose.schema(); 
-var ObjectId = schema.ObjectId; 
+var Schema = mongoose.Schema; 
+var ObjectId = Schema.ObjectId; 
 
-var UserSchema = new schema({
+var UserSchema = new Schema({
 	name: String,
 	email: String,
 	pass: String,
 	createdAt: {type:Date, default: Date.now()}, 
 	post: {type:ObjectId, ref: 'Post'}
-})
+});
+
+module.exports = mongoose.model('User', UserSchema);

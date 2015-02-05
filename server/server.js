@@ -19,6 +19,6 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 //require the config 
 
 
-require('./route')(app);
+require('./routes')(app);
 
 if(config.seedDB) { require('./config/seed'); }

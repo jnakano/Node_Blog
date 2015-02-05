@@ -5,6 +5,7 @@ var express    = require('express'),
     mongoose   = require('mongoose'),
     morgan     = require('morgan'),
     path       = require('path'),
+    cors       = require('cors'),
     errorHandler = require('errorhandler');
     bodyParser = require('body-parser');
 
@@ -15,6 +16,8 @@ module.exports = function(app){
   var env = app.get('env');
   
 	app.use(bodyParser.urlencoded({ extended: false }));
+
+  app.use(cors());
 	  
 	app.use(bodyParser.json())
 

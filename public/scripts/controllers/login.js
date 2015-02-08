@@ -2,21 +2,24 @@
 
 /**
 * @ngdoc function
-* @name Blogger.controller:RegisterCtrl
-* @description
-* # RegisterCtrl
+* @name Blogger.controller:LoginCtrl
+* @description LoginCtrl
 * Controller of the Blogger
 */
-angular.module('Blogger')
-.controller('RegisterCtrl', function (User,alertService) {
-  var vm = this;
-  vm.register = register
 
-  function register(username,password,confirm_password) {
-    User.register(username,password,confirm_password)
+angular.module('Blogger')
+.controller('LoginCtrl', function (User,alertService) {
+  var vm = this;
+  vm.login = login
+
+  function login(username,password) {
+    console.warn(username + 'user');
+    console.warn(password + 'password');
+    
+    User.login(username,password)
     .then(function success(response) {
       vm.user = response.data;
-      alertService('success','Yayy!','you are now registered');
+      alertService('success','Yayy!','you are Logged In');
       console.log('post success',res);
     },errorHandler);
   }
@@ -27,3 +30,4 @@ angular.module('Blogger')
   }
 
 });
+

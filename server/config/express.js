@@ -6,11 +6,9 @@ var express    = require('express'),
     morgan     = require('morgan'),
     path       = require('path'),
     cors       = require('cors'),
-    errorHandler = require('errorhandler');
+    errorHandler = require('errorhandler'),
+    passport = require('passport'),
     bodyParser = require('body-parser');
-
-
-
 
 module.exports = function(app){
   var env = app.get('env');
@@ -21,6 +19,8 @@ module.exports = function(app){
 	  
 	app.use(bodyParser.json())
 
+  app.use(passport.initialize());
+
   app.use(morgan('dev'));
 
   app.set('views', config.root + '/server/views');
@@ -30,7 +30,9 @@ module.exports = function(app){
   if (env === 'development') {
     app.use(require('connect-livereload')());
     app.use(express.static(path.join(config.root, 'public')));
+    app.use(morgan('dev'));
     app.set('appPath', 'public');
+
     app.use(errorHandler()); // Error handler - has to be last
   }
   

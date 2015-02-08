@@ -16,12 +16,10 @@ exports.index = function(req,res){
 exports.create = function(req,res){
 	//Get parameter from url and create new model for the post 
 	var post = req.body;
-	console.log(inspector(post))
-	Post.create(post,function(err,post){
-		console.log(inspector(post))
-		if(err) return res.send(500, err);
+	Post.create(post,function(err,post_model){
+		if(err) return res.status(500).send(err);
 
-		 res.status(201).send("Successfully sent post")
+		 res.status(201).send(post_model)
 	})
 
 }

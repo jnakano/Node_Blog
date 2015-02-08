@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var PostSchema = new Schema({
-	title: {type:String, required: true},
-	body: {type:String, required: true},
+	title: {type:String},
+	body: {type:String},
 	createdAt: {type:Date, default: Date.now()}, 
 	user: {type: ObjectId, ref:'User'}
 });

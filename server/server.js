@@ -11,7 +11,11 @@ require('./config/express')(app);
 
 
 server.listen(config.port,config.ip, function(){
-	console.log("Express listening on %d, in %s mode", config.port, app.get('env'));
+  var env = app.get('env');
+  if (env === 'development') {
+   var hostname = 'http://127.0.0.1:' 
+  }
+	console.log("Server listening on %s, in %s mode",hostname+config.port,env);
 })
 //require the environment 
 

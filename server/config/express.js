@@ -1,11 +1,11 @@
-var express    = require('express'),
-    app        = express(),
-    server     = require('http').createServer(app),
-    config     = require('./environment'),
+var config     = require('./environment'),
+    express    = require('express'),
     mongoose   = require('mongoose'),
     morgan     = require('morgan'),
     path       = require('path'),
     cors       = require('cors'),
+    cookieParser = require('cookie-parser'),
+    compression = require('compression'),
     errorHandler = require('errorhandler'),
     passport = require('passport'),
     bodyParser = require('body-parser');
@@ -18,6 +18,10 @@ module.exports = function(app){
   app.use(cors());
 	  
 	app.use(bodyParser.json())
+
+  app.use(cookieParser());
+
+  app.use(compression())
 
   app.use(passport.initialize());
 

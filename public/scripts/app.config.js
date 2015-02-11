@@ -5,13 +5,11 @@ angular.module('Blogger',['ui.router'])
 .constant('API_URL','')
 
 
-.config(function($urlRouterProvider,$stateProvider,$httpProvider,$locationProvider) {
+.config(function($urlRouterProvider,$stateProvider,$locationProvider) {
   $urlRouterProvider.otherwise('/');
 
   $locationProvider.html5Mode(true);
 
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 
   $stateProvider

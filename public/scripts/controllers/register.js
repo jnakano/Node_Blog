@@ -12,8 +12,10 @@ angular.module('Blogger')
   var vm = this;
   vm.register = register
 
-  function register(username,password,confirm_password) {
-    User.register(username,password,confirm_password)
+  function register(email,username,password,confirm_password) {
+
+    if(password != confirm_password) return alertService('danger', 'Oops', 'Passwords do not match!');
+    User.register(email,username,password)
     .then(function success(response) {
       vm.user = response.data;
       alertService('success','Yayy!','you are now registered');

@@ -1,7 +1,9 @@
 	<form name="register" class="form-signin" novalidate 
-    ng-submit="vm.register(email,password,confirm_password)">
+    ng-submit="vm.register(email,username, password,confirm_password)">
 		<h1 class="form-signin-heading text-muted">Register</h1>
 
+        <input type="text" class="form-control" name="name" ng-model="username"
+    placeholder="username" required autofocus="">
 		<input type="email" class="form-control" name="email" ng-model="email"
     placeholder="Email address" required autofocus="">
 

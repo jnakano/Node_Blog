@@ -9,7 +9,7 @@
 */
 angular.module('Blogger')
 .factory('User', function ($http,API_URL) {
-  var register_url = API_URL + '/auth/register';
+  var register_url = API_URL + '/users';
   var login_url = API_URL + '/auth/login';
 
   function login(username,password){
@@ -19,11 +19,11 @@ angular.module('Blogger')
     });
   }
   
-  function register(username,password,confirm_password){
+  function register(email,username,password){
     return $http.post(register_url,{
-      username: username,
-      password: password,
-      confirm_password: confirm_password
+      email: email,
+      pass: password,
+      name: username
     });
   }
 

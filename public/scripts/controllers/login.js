@@ -13,14 +13,15 @@ angular.module('Blogger')
   vm.login = login
 
   function login(username,password) {
-    console.warn(username + 'user');
-    console.warn(password + 'password');
+    console.warn(username + ' user');
+    console.warn(password + ' password');
     
     User.login(username,password)
     .then(function success(response) {
+      debugger;
       vm.user = response.data;
       alertService('success','Yayy!','you are Logged In');
-      console.log('post success',res);
+      console.log('post success',response);
     },errorHandler);
   }
 

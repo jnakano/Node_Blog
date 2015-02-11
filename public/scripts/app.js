@@ -12,6 +12,6 @@
   */
   angular
   .module('Blogger', ['ui.router'])
-  .constant('API_URL','localhost:8000');
+  .constant('API_URL','');
 
 }());
